@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { CollectionSearchEvent } from './CollectionSearchEvent';
 
 export interface CollectionSearchProps {
@@ -17,12 +17,14 @@ export const CollectionSearch: React.FC<CollectionSearchProps> = (props: Collect
         setSearchText(event.currentTarget.value);
     }
 
-    function performSearch() {
+    function performSearch(event: FormEvent) {
         props.onCollectionSearch({
             collectionId: props.collectionId,
             searchText: searchText,
             triggeredAt: new Date()
         });
+        event.preventDefault();
+
     }
 
     return (

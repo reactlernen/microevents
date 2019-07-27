@@ -17,7 +17,7 @@ export interface NavbarItem {
 const defaultNavbarItems: NavbarItem[] = [
     {
         targetView: SystemView.EVENTS,
-        targetViewLabel: 'Events',
+        targetViewLabel: 'Micro Events',
         pathTo: '/events'
     },
     {

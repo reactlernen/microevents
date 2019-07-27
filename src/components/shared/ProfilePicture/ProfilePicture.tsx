@@ -17,7 +17,7 @@ export interface ProfilePictureProps {
     profileClicked: OnProfilePictureClicked;
 }
 
-export const ProfilePicture: React.FC<ProfilePictureProps> = (props: ProfilePictureProps) => {
+const ProfilePicture: React.FC<ProfilePictureProps> = (props: ProfilePictureProps) => {
 
     const fullName = `${props.profile.firstName} ${props.profile.lastName}`;
     const borderRadius = (!props.circle) ? 0 : (props.diameter / 2);
@@ -39,8 +39,9 @@ export const ProfilePicture: React.FC<ProfilePictureProps> = (props: ProfilePict
         height: innerDiameter
     };
 
-    const onProfilePictureClick = () => {
+    const onProfilePictureClick = (event: React.MouseEvent<HTMLDivElement>) => {
         props.profileClicked(props.profile);
+        event.preventDefault();
     };
 
     return (

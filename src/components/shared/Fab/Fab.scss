@@ -1,0 +1,16 @@
+$diameter: 60px;
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: $diameter;
+  height: $diameter;
+  box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.32);
+  border-radius: $diameter / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: $diameter / 3;
+}
