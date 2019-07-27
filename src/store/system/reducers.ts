@@ -1,4 +1,4 @@
-import { SystemAction, SystemActionType, SystemState, SystemView, ChangeViewAction } from "./types";
+import { SystemAction, SystemActionType, SystemState, SystemView } from "./types";
 
 const initialState: SystemState = {
     view: SystemView.EVENTS

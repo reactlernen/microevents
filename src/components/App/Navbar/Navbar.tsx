@@ -51,9 +51,9 @@ export const Navbar: React.FunctionComponent<NavbarProps> = ({ items = defaultNa
         <div className="collapse navbar-collapse align-items-end" id="navbarNav">
             <ul className="navbar-nav">
                 {
-                    items.map((item) => (
+                    items.map((item, i) => (
                         <li className="nav-item">
-                            <NavLink className="nav-link" to={item.pathTo} activeClassName="active" onClick={() => dispatch(changeView(item.targetView))}>{item.targetViewLabel}</NavLink>
+                            <NavLink className="nav-link" key={i} to={item.pathTo} activeClassName="active" onClick={() => dispatch(changeView(item.targetView))}>{item.targetViewLabel}</NavLink>
                         </li>
                     ))
                 }

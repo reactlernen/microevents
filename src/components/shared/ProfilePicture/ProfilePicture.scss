@@ -1,0 +1,19 @@
+div {
+  box-sizing: border-box;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+
+  img {
+    object-fit: contain;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+}
+
+
