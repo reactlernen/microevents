@@ -39,7 +39,7 @@ export class MicroEventService {
         );
     }
 
-    private _toMicroEvent(eventResponse: EventResponse): Promise<MicroEvent> {
+    private _toMicroEvent = (eventResponse: EventResponse): Promise<MicroEvent> => {
         const participantPromises = eventResponse.participantIds.map(participantId => this._api.profile.findById(participantId));
         return Promise.all(participantPromises).then((participants: Profile[]) => {
             return {
