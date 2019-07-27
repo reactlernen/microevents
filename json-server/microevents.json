@@ -85,6 +85,17 @@
         9,
         3
       ]
+    },
+    {
+      "title": "Testt",
+      "shortDescription": "Spazieren mit Hunden.",
+      "pictureUrl": "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/09/dog-landing-hero-lg.jpg?bust=1536935129&width=2048",
+      "eventDate": "0001-12-12",
+      "organizerId": 1,
+      "participantIds": [
+        1
+      ],
+      "id": 7
     }
   ],
   "profiles": [

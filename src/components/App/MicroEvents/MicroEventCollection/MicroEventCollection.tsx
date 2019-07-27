@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { match } from "react-router";
+import { match, Redirect } from "react-router";
 import { MicroEvent } from "../../../../domain/MicroEvent/MicroEvent";
 import { MicroEventService } from "../../../../domain/MicroEvent/MicroEventService";
 import { Api } from "../../../../api/Api";
@@ -8,6 +8,7 @@ import { CollectionSearch } from "../../../shared/CollectionSearch/CollectionSea
 import ProfilePicture from "../../../shared/ProfilePicture/ProfilePicture";
 import { Profile } from "../../../../domain/Profile/Profile";
 import { Link } from "react-router-dom";
+import Fab from "../../../shared/Fab/Fab";
 
 export interface MicroEventCollectionParams {
     microEventId: string;
@@ -35,7 +36,10 @@ function formatTime(date: Date): string {
 }
 
 export const MicroEventCollection: React.FC<MicroEventCollectionProps> = ({match}: MicroEventCollectionProps) => {
+
     const [microEvents, setMicroEvents] = useState([] as MicroEvent[]);
+    const [showCreateForm, setShowCreateForm] = useState(false);
+    const [profileDetailsToShow, setProfileDetailsToShow] = useState<Profile>();
 
     useEffect(() => {
         microEventsService.findAll().then(setMicroEvents);
@@ -50,7 +54,11 @@ export const MicroEventCollection: React.FC<MicroEventCollectionProps> = ({match
     };
 
     const showProfileDetails = (profile: Profile) => {
+        setProfileDetailsToShow(profile);
+    };
 
+    const showMicroEventCreateForm = () => {
+        setShowCreateForm(true);
     };
 
     return (
@@ -103,6 +111,9 @@ export const MicroEventCollection: React.FC<MicroEventCollectionProps> = ({match
                 ))}
 
             </div>
+            <Fab tooltip="Add a new Event" onClick={showMicroEventCreateForm}></Fab>
+            { showCreateForm && <Redirect to={'/events/create'} /> }
+            { showProfileDetails && profileDetailsToShow && <Redirect to={`/profiles/${profileDetailsToShow.id}`} />}
         </div>
     );
 };

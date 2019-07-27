@@ -8,7 +8,7 @@ export interface FabProps {
 
 export const Fab: React.FC<FabProps> = ({tooltip, onClick}: FabProps) =>
     (
-        <button type="button" className="btn btn-microevents form-control form-control-lg text-center"
+        <button type="button" className="fab btn btn-microevents form-control form-control-lg text-center"
                 onClick={onClick}><span title={tooltip}>+</span></button>
     );
 
