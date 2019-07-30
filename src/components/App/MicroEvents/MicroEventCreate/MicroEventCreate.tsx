@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { Fragment, useState, useRef, FormEvent } from 'react';
 import { MicroEventService } from "../../../../domain/MicroEvent/MicroEventService";
 import { Api } from "../../../../api/Api";
 import { CreateEventRequest } from "../../../../api/event/CreateEventRequest";
@@ -31,7 +31,9 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
     const submitButtonRef = useRef<HTMLButtonElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
-    function createEvent(): void {
+    function createEvent(event: FormEvent): void {
+
+        event.preventDefault();
 
         const eventData: CreateEventRequest = {
             title,
@@ -43,6 +45,8 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
         microEventService.createEvent(eventData).then(() => {
             setMicroEventCreated(true);
         });
+
+
     }
 
     function handleTitleChange({currentTarget: {classList, value, validity: {valid, valueMissing, tooShort}}}: React.FormEvent<HTMLInputElement>) {

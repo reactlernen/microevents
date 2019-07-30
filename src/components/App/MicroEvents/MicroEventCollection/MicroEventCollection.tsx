@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { match, Redirect } from "react-router";
 import { MicroEvent } from "../../../../domain/MicroEvent/MicroEvent";
 import { MicroEventService } from "../../../../domain/MicroEvent/MicroEventService";
@@ -43,7 +43,7 @@ export const MicroEventCollection: React.FC<MicroEventCollectionProps> = ({match
 
     useEffect(() => {
         microEventsService.findAll().then(setMicroEvents);
-    }, []);
+    }, [match]);
 
     const searchEvents = (search: CollectionSearchEvent) => {
         if (search.searchText && search.searchText.length > 0) {
@@ -74,7 +74,7 @@ export const MicroEventCollection: React.FC<MicroEventCollectionProps> = ({match
             <div className="row">
 
                 {microEvents.map(microEvent => (
-                    <div className="col-12 col-md-6 col-lg-4 mb-4">
+                    <div key={microEvent.id} className="col-12 col-md-6 col-lg-4 mb-4">
 
 
                         <div className="card">

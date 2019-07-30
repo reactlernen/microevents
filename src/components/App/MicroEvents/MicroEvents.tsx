@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import { match, Route, Switch } from "react-router";
 import { MicroEventDetail } from "./MicroEventDetail/MicroEventDetail";
 import { MicroEventCollection } from "./MicroEventCollection/MicroEventCollection";

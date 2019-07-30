@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { EventResponse } from './EventResponse';
 import { CreateEventRequest } from './CreateEventRequest';
 import { HttpClient } from "../HttpClient";
