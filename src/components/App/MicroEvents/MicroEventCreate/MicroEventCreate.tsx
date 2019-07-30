@@ -54,7 +54,7 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
             classList.remove('is-invalid');
             setTitleError(undefined);
 
-            submitButtonRef.current!.disabled = !formRef.current!.reportValidity()
+            submitButtonRef.current!.disabled = !formRef.current!.checkValidity()
             ;
         } else {
             classList.add('is-invalid');
@@ -79,7 +79,7 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
             classList.remove('is-invalid');
             setEventDateError(undefined);
 
-            submitButtonRef.current!.disabled = !formRef.current!.reportValidity()
+            submitButtonRef.current!.disabled = !formRef.current!.checkValidity()
             ;
         } else {
             classList.add('is-invalid');
@@ -104,7 +104,7 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
             classList.remove('is-invalid');
             setPictureUrlError(undefined);
 
-            submitButtonRef.current!.disabled = !formRef.current!.reportValidity()
+            submitButtonRef.current!.disabled = !formRef.current!.checkValidity()
             ;
         } else {
             classList.add('is-invalid');
@@ -127,7 +127,7 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
             classList.remove('is-invalid');
             setShortDescriptionError(undefined);
 
-            submitButtonRef.current!.disabled = !formRef.current!.reportValidity()
+            submitButtonRef.current!.disabled = !formRef.current!.checkValidity()
             ;
         } else {
             classList.add('is-invalid');
@@ -200,7 +200,7 @@ const MicroEventCreate: React.FC<MicroEventCreateProps> = (props: MicroEventCrea
                         )}
                         {!eventDateError && (
                             <div className="valid-feedback">
-                                Yeah... that's a catchy title ;-).
+                                Yeah... that's a good day ;-).
                             </div>
                         )}
                     </div>
